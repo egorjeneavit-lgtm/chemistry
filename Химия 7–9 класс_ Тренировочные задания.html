@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Химия 7–9 класс: Тренировочные задания (Куррикулум РМ)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #f1f5f9;
+            color: #0f172a;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Химические индексы и степени */
+        sub, sup {
+            font-size: 0.72em;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+        }
+        sup { top: -0.45em; }
+        sub { bottom: -0.22em; }
+
+        /* Плавные переходы и скроллбар */
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #e2e8f0;
+            border-radius: 9999px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 9999px;
+        }
+
+        .option-btn {
+            transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .option-btn:active:not(:disabled) {
+            transform: scale(0.985);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.25s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- ШАПКА ПРИЛОЖЕНИЯ -->
+    <header class="bg-gradient-to-r from-teal-700 via-teal-600 to-sky-700 text-white shadow-md sticky top-0 z-30">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-white/15 backdrop-blur-sm flex items-center justify-center border border-white/25 shrink-0">
+                    <!-- Иконка колбы SVG -->
+                    <svg class="w-6 h-6 text-teal-100" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 3h6m-5 0v5.172a2 2 0 01-.586 1.414l-4.828 4.828A2 2 0 004 15.828V18a3 3 0 003 3h10a3 3 0 003-3v-2.172a2 2 0 00-.586-1.414l-4.828-4.828A2 2 0 0114 8.172V3M8 14h8"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-base sm:text-lg font-bold leading-tight tracking-tight">Химия: Тренажёр (7–9 класс)</h1>
+                    <p class="text-xs text-teal-100 opacity-90">Куррикулум Республики Молдова • Стандарт MEC</p>
+                </div>
+            </div>
+
+            <!-- Переключатель классов и кнопка справочника -->
+            <div class="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end">
+                <div class="flex bg-teal-900/40 p-1 rounded-xl border border-white/15" role="tablist">
+                    <button onclick="selectGrade(7)" id="grade-btn-7" class="grade-tab px-3.5 py-1.5 rounded-lg text-sm font-semibold transition-all">7 класс</button>
+                    <button onclick="selectGrade(8)" id="grade-btn-8" class="grade-tab px-3.5 py-1.5 rounded-lg text-sm font-semibold transition-all">8 класс</button>
+                    <button onclick="selectGrade(9)" id="grade-btn-9" class="grade-tab px-3.5 py-1.5 rounded-lg text-sm font-semibold transition-all">9 класс</button>
+                </div>
+
+                <button onclick="toggleReferenceModal(true)" class="flex items-center gap-1.5 bg-white text-teal-800 hover:bg-teal-50 active:scale-95 px-3.5 py-2 rounded-xl text-sm font-semibold shadow-sm transition-all shrink-0">
+                    <svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                    <span>Справочник</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ОСНОВНОЙ КОНТЕЙНЕР -->
+    <main class="flex-1 max-w-6xl w-full mx-auto px-4 py-5 grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        
+        <!-- СПИСОК МОДУЛЕЙ КУРРИКУЛУМА (ЛЕВАЯ КОЛОНКА / ВЕРХНЯЯ ПАНЕЛЬ НА МОБИЛЬНЫХ) -->
+        <aside class="lg:col-span-4 bg-white rounded-2xl shadow-sm border border-slate-200/80 p-4">
+            <div class="flex items-center justify-between mb-3">
+                <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400" id="modules-header-title">Модули 7 класса</h2>
+                <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 border border-teal-200/60" id="grade-stats-badge">0 / 4 пройдено</span>
+            </div>
+            <div id="module-list" class="flex flex-col gap-2 max-h-[340px] lg:max-h-[calc(100vh-190px)] overflow-y-auto custom-scroll pr-1">
+                <!-- Модули генерируются через JS -->
+            </div>
+        </aside>
+
+        <!-- РАБОЧАЯ ОБЛАСТЬ ТРЕНАЖЁРА (ПРАВАЯ КОЛОНКА) -->
+        <section class="lg:col-span-8 flex flex-col gap-4">
+            
+            <!-- Карточка информации о текущем модуле и прогрессе -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-4 sm:p-5">
+                <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+                    <div>
+                        <span id="current-module-tag" class="inline-block text-xs font-semibold text-sky-700 bg-sky-50 border border-sky-200/70 px-2.5 py-0.5 rounded-lg mb-1.5">7 класс • Модуль 1</span>
+                        <h2 id="current-module-title" class="text-lg sm:text-xl font-bold text-slate-800 leading-snug">Вещества и химические явления в нашей жизни</h2>
+                        <p id="current-module-desc" class="text-xs sm:text-sm text-slate-500 mt-1">Техника безопасности, лабораторная посуда, физические и химические явления, признаки реакций.</p>
+                    </div>
+                </div>
+
+                <!-- Прогресс-бар -->
+                <div class="mt-3 pt-3 border-t border-slate-100">
+                    <div class="flex items-center justify-between text-xs font-semibold text-slate-600 mb-1.5">
+                        <span id="question-counter-text">Задание 1 из 6</span>
+                        <span id="score-counter-text" class="text-teal-700">Баллы: 0</span>
+                    </div>
+                    <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+                        <div id="progress-bar" class="h-full bg-gradient-to-r from-teal-500 to-sky-500 rounded-full transition-all duration-300" style="width: 16%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- КАРТОЧКА ЗАДАНИЯ -->
+            <div id="quiz-card" class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-5 sm:p-6 animate-fade-in">
+                <!-- Содержимое задания рендерится JS -->
+            </div>
+
+            <!-- КАРТОЧКА РЕЗУЛЬТАТОВ МОДУЛЯ (скрыта до завершения) -->
+            <div id="result-card" class="hidden bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 sm:p-8 text-center animate-fade-in">
+                <!-- Итоги модуля рендерятся JS -->
+            </div>
+
+        </section>
+    </main>
+
+    <!-- МОДАЛЬНОЕ ОКНО СПРАВОЧНИКА УЧЕНИКА -->
+    <div id="reference-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-5">
+        <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden animate-fade-in">
+            <!-- Шапка модального окна -->
+            <div class="px-5 py-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-8 h-8 rounded-lg bg-teal-600 text-white flex items-center justify-center font-bold text-sm">R<sub>M</sub></span>
+                    <div>
+                        <h3 class="font-bold text-slate-800 text-base sm:text-lg">Справочник ученика (7–9 класс)</h3>
+                        <p class="text-xs text-slate-500">Формулы, индикаторы, ряд активности и растворимость</p>
+                    </div>
+                </div>
+                <button onclick="toggleReferenceModal(false)" class="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-200/60 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Вкладки справочника -->
+            <div class="flex border-b border-slate-200 px-4 bg-white overflow-x-auto">
+                <button onclick="switchRefTab('formulas')" id="ref-tab-formulas" class="ref-tab-btn px-4 py-3 text-sm font-semibold border-b-2 border-teal-600 text-teal-700 whitespace-nowrap">Основные формулы</button>
+                <button onclick="switchRefTab('indicators')" id="ref-tab-indicators" class="ref-tab-btn px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-700 whitespace-nowrap">Индикаторы и Ряд металлов</button>
+                <button onclick="switchRefTab('solubility')" id="ref-tab-solubility" class="ref-tab-btn px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-700 whitespace-nowrap">Таблица растворимости</button>
+            </div>
+
+            <!-- Контент справочника -->
+            <div class="p-5 overflow-y-auto custom-scroll space-y-5 text-sm">
+                
+                <!-- Вкладка 1: Формулы -->
+                <div id="ref-content-formulas" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="p-3.5 rounded-xl bg-sky-50/70 border border-sky-200/70">
+                            <div class="text-xs font-bold uppercase text-sky-700 mb-1">Количество вещества (моль)</div>
+                            <div class="text-base font-bold text-slate-800">&nu; = m / M</div>
+                            <p class="text-xs text-slate-600 mt-1"><b>m</b> — масса (г), <b>M</b> — молярная масса (г/моль), численно равна M<sub>r</sub>.</p>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-teal-50/70 border border-teal-200/70">
+                            <div class="text-xs font-bold uppercase text-teal-700 mb-1">Молярный объём газов (н.у.)</div>
+                            <div class="text-base font-bold text-slate-800">&nu; = V / V<sub>m</sub> &nbsp;(V<sub>m</sub> = 22,4 л/моль)</div>
+                            <p class="text-xs text-slate-600 mt-1"><b>V</b> — объём газа при нормальных условиях (л).</p>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-purple-50/70 border border-purple-200/70">
+                            <div class="text-xs font-bold uppercase text-purple-700 mb-1">Через число частиц (N<sub>A</sub>)</div>
+                            <div class="text-base font-bold text-slate-800">&nu; = N / N<sub>A</sub> &nbsp;(N<sub>A</sub> = 6,02·10<sup>23</sup> моль<sup>-1</sup>)</div>
+                            <p class="text-xs text-slate-600 mt-1"><b>N</b> — число структурных частиц (атомов, молекул, ионов).</p>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-indigo-50/70 border border-indigo-200/70">
+                            <div class="text-xs font-bold uppercase text-indigo-700 mb-1">Массовая доля в растворе</div>
+                            <div class="text-base font-bold text-slate-800">ω = (m<sub>в-ва</sub> / m<sub>р-ра</sub>) · 100%</div>
+                            <p class="text-xs text-slate-600 mt-1">m<sub>р-ра</sub> = m<sub>в-ва</sub> + m<sub>воды</sub>.</p>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-amber-50/70 border border-amber-200/70 sm:col-span-2">
+                            <div class="text-xs font-bold uppercase text-amber-700 mb-1">Массовая доля элемента в формуле</div>
+                            <div class="text-base font-bold text-slate-800">ω(Э) = (k · A<sub>r</sub>(Э) / M<sub>r</sub>) · 100%</div>
+                            <p class="text-xs text-slate-600 mt-1"><b>k</b> — индекс (число атомов) элемента в формуле вещества.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <h4 class="font-bold text-slate-800 mb-2">Относительные атомные массы A<sub>r</sub> (часто используемые):</h4>
+                        <div class="flex flex-wrap gap-2 text-xs font-medium">
+                            <span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200">H = 1</span>
+                            <span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200">C = 12</span>
+                            <span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200">N = 14</span>
+                            <span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200">O = 16</span>
+                            <span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200">Na = 23</span>
+                            <span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200">Mg = 24</span>
+                            <span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200">Al = 27</span>
+                            <span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200">Si = 28</span>
+                            <span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200">P = 31</span>
+                            <span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200">S = 32</span>
+                            <span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200">Cl = 35,5</span>
+                            <span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200">K = 39</span>
+                            <span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200">Ca = 40</span>
+                            <span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200">Fe = 56</span>
+                            <span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200">Cu = 64</span>
+                            <span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200">Zn = 65</span>
+                            <span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200">Ag = 108</span>
+                            <span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200">Ba = 137</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Вкладка 2: Индикаторы и Ряд металлов -->
+                <div id="ref-content-indicators" class="hidden space-y-5">
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-2">Окраска индикаторов в разных средах</h4>
+                        <div class="overflow-x-auto rounded-xl border border-slate-200">
+                            <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                                <thead>
+                                    <tr class="bg-slate-100 text-slate-700 border-b border-slate-200">
+                                        <th class="p-2.5 font-semibold">Индикатор</th>
+                                        <th class="p-2.5 font-semibold">Кислая среда (H<sup>+</sup>)</th>
+                                        <th class="p-2.5 font-semibold">Нейтральная (H<sub>2</sub>O)</th>
+                                        <th class="p-2.5 font-semibold">Щелочная среда (OH<sup>-</sup>)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200">
+                                    <tr>
+                                        <td class="p-2.5 font-semibold">Лакмус</td>
+                                        <td class="p-2.5 text-rose-600 font-medium">Красный</td>
+                                        <td class="p-2.5 text-purple-600 font-medium">Фиолетовый</td>
+                                        <td class="p-2.5 text-blue-600 font-medium">Синий</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2.5 font-semibold">Метилоранж</td>
+                                        <td class="p-2.5 text-rose-600 font-medium">Красный</td>
+                                        <td class="p-2.5 text-orange-500 font-medium">Оранжевый</td>
+                                        <td class="p-2.5 text-amber-500 font-medium">Жёлтый</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2.5 font-semibold">Фенолфталеин</td>
+                                        <td class="p-2.5 text-slate-500">Бесцветный</td>
+                                        <td class="p-2.5 text-slate-500">Бесцветный</td>
+                                        <td class="p-2.5 text-pink-600 font-bold">Малиновый</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <h4 class="font-bold text-slate-800 mb-2">Электрохимический ряд напряжений металлов (Н. Бекетов)</h4>
+                        <div class="p-3 bg-white rounded-xl border border-slate-200 font-mono text-xs sm:text-sm text-center leading-relaxed overflow-x-auto">
+                            <span class="text-teal-700 font-bold">Li, K, Ba, Ca, Na, Mg, Al, Mn, Zn, Cr, Fe, Ni, Sn, Pb</span>
+                            <span class="mx-1.5 px-2 py-0.5 rounded bg-rose-100 text-rose-700 font-bold">(H<sub>2</sub>)</span>
+                            <span class="text-slate-500 font-semibold">Cu, Hg, Ag, Pt, Au</span>
+                        </div>
+                        <p class="text-xs text-slate-600 mt-2">
+                            • Металлы левее <b>(H<sub>2</sub>)</b> вытесняют водород из растворов кислот (кроме HNO<sub>3</sub> и конц. H<sub>2</sub>SO<sub>4</sub>).<br>
+                            • Более активный металл (левее) вытесняет менее активный (правее) из растворов его солей (кроме щелочных металлов в воде).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Вкладка 3: Таблица растворимости -->
+                <div id="ref-content-solubility" class="hidden space-y-3">
+                    <p class="text-xs text-slate-600"><b>Р</b> — растворимо, <b>М</b> — малорастворимо, <b>Н</b> — нерастворимо (осадок ↓), <b>—</b> — разлагается водой или не существует.</p>
+                    <div class="overflow-x-auto rounded-xl border border-slate-200">
+                        <table class="w-full text-center border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-700 border-b border-slate-200">
+                                    <th class="p-2 text-left">Анион \ Катион</th>
+                                    <th class="p-2">H<sup>+</sup></th>
+                                    <th class="p-2">Na<sup>+</sup> / K<sup>+</sup></th>
+                                    <th class="p-2">NH<sub>4</sub><sup>+</sup></th>
+                                    <th class="p-2">Ba<sup>2+</sup></th>
+                                    <th class="p-2">Ca<sup>2+</sup></th>
+                                    <th class="p-2">Mg<sup>2+</sup></th>
+                                    <th class="p-2">Al<sup>3+</sup></th>
+                                    <th class="p-2">Zn<sup>2+</sup></th>
+                                    <th class="p-2">Fe<sup>2+</sup></th>
+                                    <th class="p-2">Fe<sup>3+</sup></th>
+                                    <th class="p-2">Cu<sup>2+</sup></th>
+                                    <th class="p-2">Ag<sup>+</sup></th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 font-medium">
+                                <tr>
+                                    <td class="p-2 text-left font-bold bg-slate-50">OH<sup>-</sup></td>
+                                    <td class="p-2">H<sub>2</sub>O</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р (NH<sub>3</sub>↑)</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-amber-600">М</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н</td>
+                                    <td class="p-2 text-slate-400">—</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 text-left font-bold bg-slate-50">Cl<sup>-</sup></td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н↓</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 text-left font-bold bg-slate-50">NO<sub>3</sub><sup>-</sup></td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 text-left font-bold bg-slate-50">SO<sub>4</sub><sup>2-</sup></td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н↓</td>
+                                    <td class="p-2 text-amber-600">М</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-amber-600">М</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 text-left font-bold bg-slate-50">CO<sub>3</sub><sup>2-</sup></td>
+                                    <td class="p-2 text-sky-600">CO<sub>2</sub>↑</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н↓</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н↓</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н↓</td>
+                                    <td class="p-2 text-slate-400">—</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н↓</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н↓</td>
+                                    <td class="p-2 text-slate-400">—</td>
+                                    <td class="p-2 text-slate-400">—</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н↓</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 text-left font-bold bg-slate-50">PO<sub>4</sub><sup>3-</sup></td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-emerald-600">Р</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н↓</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н↓</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н↓</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н↓</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н↓</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н↓</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н↓</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н↓</td>
+                                    <td class="p-2 text-rose-600 font-bold">Н↓</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * БАЗА ДАННЫХ УЧЕБНЫХ МОДУЛЕЙ И ЗАДАНИЙ
+         * Полностью соответствует Куррикулуму Республики Молдова (стандарт MEC 2019) для 7, 8 и 9 классов.
+         * Типы заданий:
+         * - 'choice': выбор одного правильного ответа
+         * - 'numeric': числовой ввод с проверкой точности (tolerance)
+         */
+        const CURRICULUM_DATA = {
+            7: [
+                {
+                    id: '7-1',
+                    number: 'Модуль 1',
+                    title: 'Вещества и химические явления в нашей жизни',
+                    desc: 'Правила ТБ, лабораторная посуда, физические тела и вещества, физические и химические явления, признаки реакций.',
+                    questions: [
+                        {
+                            type: 'choice',
+                            text: 'Как правильно разбавлять концентрированную кислоту водой в школьной химической лаборатории?',
+                            options: [
+                                'Приливать кислоту тонкой струйкой в воду при перемешивании',
+                                'Приливать воду тонкой струйкой в концентрированную кислоту',
+                                'Быстро смешать равные объёмы воды и кислоты в закрытой колбе',
+                                'Порядок смешивания не имеет значения'
+                            ],
+                            correct: 0,
+                            explanation: 'По правилам ТБ (CS5-1.5) всегда льют кислоту в воду («сначала вода, потом кислота»), так как плотность кислоты больше и при обратном порядке вода закипает на поверхности с разбрызгиванием.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Какой лабораторный прибор используют для точного измерения объёма жидкости в лаборатории?',
+                            options: [
+                                'Мерный цилиндр',
+                                'Фарфоровая ступка с пестиком',
+                                'Тигельные щипцы',
+                                'Асбестовая сетка'
+                            ],
+                            correct: 0,
+                            explanation: 'Мерный цилиндр или мензурка имеют шкалу делений для измерения объёма жидкостей.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Укажите ряд, в котором перечислены ТОЛЬКО вещества (а не физические тела):',
+                            options: [
+                                'Железо, вода, поваренная соль, сахар',
+                                'Железный гвоздь, стакан, медная проволока, вода',
+                                'Алюминиевая ложка, алюминий, мел, парта',
+                                'Стекло, стеклянная колба, медь, кислород'
+                            ],
+                            correct: 0,
+                            explanation: 'Вещество — то, из чего состоит физическое тело. Гвоздь, стакан, ложка и колба — это физические тела.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Какое из перечисленных явлений является ХИМИЧЕСКИМ?',
+                            options: [
+                                'Скисание молока и ржавление железного гвоздя',
+                                'Плавление парафина и испарение воды',
+                                'Измельчение кусочка мела в порошок',
+                                'Замерзание воды в морозильной камере'
+                            ],
+                            correct: 0,
+                            explanation: 'При скисании молока и ржавлении железа образуются новые вещества с другими свойствами — это химические реакции.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Какой признак химической реакции наблюдается при взаимодействии пищевой соды с уксусной кислотой?',
+                            options: [
+                                'Бурное выделение газа (пузырьков CO<sub>2</sub>)',
+                                'Выпадение синего студенистого осадка',
+                                'Появление ярко-зелёного пламени',
+                                'Образование серебристого налёта на стенках'
+                            ],
+                            correct: 0,
+                            explanation: 'При действии кислоты на карбонат/гидрокарбонат натрия выделяется углекислый газ (CO₂).'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Какая часть пламени спиртовки имеет самую высокую температуру и используется для нагревания пробирок?',
+                            options: [
+                                'Верхняя (внешняя) зона пламени',
+                                'Нижняя тёмная зона у самого фитиля',
+                                'Средняя светящаяся зона',
+                                'Температура во всех зонах одинакова'
+                            ],
+                            correct: 0,
+                            explanation: 'В верхней внешней зоне пламени происходит наиболее полное сгорание паров спирта, поэтому температура там максимальна.'
+                        }
+                    ]
+                },
+                {
+                    id: '7-2',
+                    number: 'Модуль 2',
+                    title: 'Периодическая система и строение атома',
+                    desc: 'Химические элементы (1–20), состав ядра (протоны, нейтроны), электронные схемы, валентность.',
+                    questions: [
+                        {
+                            type: 'choice',
+                            text: 'Сколько протонов, нейтронов и электронов содержит атом алюминия <sup>27</sup><sub>13</sub>Al?',
+                            options: [
+                                '13 протонов, 14 нейтронов, 13 электронов',
+                                '13 протонов, 27 нейтронов, 13 электронов',
+                                '14 протонов, 13 нейтронов, 14 электронов',
+                                '27 протонов, 13 нейтронов, 27 электронов'
+                            ],
+                            correct: 0,
+                            explanation: 'Порядковый номер Z = 13 определяет число протонов (13) и электронов (13). Число нейтронов N = A<sub>r</sub> - Z = 27 - 13 = 14.'
+                        },
+                        {
+                            type: 'numeric',
+                            text: 'Определите общее число электронов в атоме элемента, расположенного в 3-м периоде, V группе главной подгруппе (фосфор P).',
+                            unit: 'электронов',
+                            answer: 15,
+                            tolerance: 0,
+                            explanation: 'Фосфор (P) имеет порядковый номер 15 (3 электронных слоя: 2e⁻, 8e⁻, 5e⁻). Общее число электронов равно 15.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Какая схема распределения электронов по энергетическим уровням соответствует атому серы (S, №16)?',
+                            options: [
+                                '2e<sup>-</sup>, 8e<sup>-</sup>, 6e<sup>-</sup>',
+                                '2e<sup>-</sup>, 6e<sup>-</sup>, 8e<sup>-</sup>',
+                                '2e<sup>-</sup>, 8e<sup>-</sup>, 8e<sup>-</sup>',
+                                '2e<sup>-</sup>, 4e<sup>-</sup>'
+                            ],
+                            correct: 0,
+                            explanation: 'Сера находится в 3-м периоде (3 слоя) и VI группе главной подгруппе (6 валентных электронов на внешнем слое): 2 + 8 + 6 = 16.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Чему равна высшая валентность углерода (C) и серы (S) по их положению в Периодической системе?',
+                            options: [
+                                'Углерод — IV, сера — VI',
+                                'Углерод — II, сера — II',
+                                'Углерод — IV, сера — IV',
+                                'Углерод — VI, сера — IV'
+                            ],
+                            correct: 0,
+                            explanation: 'Высшая валентность элементов главных подгрупп обычно равна номеру группы: C в IV группе (IV), S в VI группе (VI).'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'В каком ряду химические элементы расположены в порядке УСИЛЕНИЯ неметаллических свойств?',
+                            options: [
+                                'Si → P → S → Cl',
+                                'F → Cl → Br → I',
+                                'O → N → C → B',
+                                'Na → Mg → Al → Si'
+                            ],
+                            correct: 0,
+                            explanation: 'В периоде слева направо (от кремния Si к хлору Cl) число электронов на внешнем слое растёт от 4 до 7, и неметаллические свойства усиливаются.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'К какой группе элементов относится кальций (Ca, №20)?',
+                            options: [
+                                'Металл, расположен в 4-м периоде, II группе главной подгруппе',
+                                'Неметалл, расположен в 4-м периоде, II группе главной подгруппе',
+                                'Металл, расположен в 2-м периоде, IV группе главной подгруппе',
+                                'Инертный газ 4-го периода'
+                            ],
+                            correct: 0,
+                            explanation: 'Кальций (Z=20) стоит в начале 4-го большого периода во IIА группе и является типичным активным металлом.'
+                        }
+                    ]
+                },
+                {
+                    id: '7-3',
+                    number: 'Модуль 3',
+                    title: 'Состав вещества и химическая связь',
+                    desc: 'Простые и сложные вещества, относительная молекулярная масса Mr, составление формул по валентности, ковалентная и ионная связь.',
+                    questions: [
+                        {
+                            type: 'numeric',
+                            text: 'Вычислите относительную молекулярную массу M<sub>r</sub> карбоната кальция CaCO<sub>3</sub> (мела), если A<sub>r</sub>(Ca)=40, A<sub>r</sub>(C)=12, A<sub>r</sub>(O)=16.',
+                            unit: '',
+                            answer: 100,
+                            tolerance: 0.1,
+                            explanation: 'M<sub>r</sub>(CaCO<sub>3</sub>) = 40 + 12 + 3 · 16 = 40 + 12 + 48 = 100.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Составьте правильную химическую формулу оксида алюминия, зная, что валентность алюминия равна III, а кислорода — II:',
+                            options: [
+                                'Al<sub>2</sub>O<sub>3</sub>',
+                                'Al<sub>3</sub>O<sub>2</sub>',
+                                'AlO',
+                                'Al<sub>2</sub>O'
+                            ],
+                            correct: 0,
+                            explanation: 'Наименьшее общее кратное для валентностей III и II равно 6. Индекс Al: 6 / 3 = 2; индекс O: 6 / 2 = 3. Формула: Al₂O₃.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Определите валентность серы в оксиде серы SO<sub>3</sub>:',
+                            options: [
+                                'VI',
+                                'III',
+                                'IV',
+                                'II'
+                            ],
+                            correct: 0,
+                            explanation: 'Валентность кислорода равна II. На 3 атома кислорода приходится 3 · 2 = 6 единиц валентности, значит, валентность одного атома серы равна VI.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Какой тип химической связи образуется в молекуле хлороводорода HCl?',
+                            options: [
+                                'Ковалентная полярная связь',
+                                'Ковалентная неполярная связь',
+                                'Ионная связь',
+                                'Металлическая связь'
+                            ],
+                            correct: 0,
+                            explanation: 'HCl образован двумя разными неметаллами (H и Cl). Общая электронная пара смещена к более электроотрицательному хлору — связь ковалентная полярная.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Выберите вещество с ИОННОЙ химической связью:',
+                            options: [
+                                'NaCl (хлорид натрия)',
+                                'O<sub>2</sub> (кислород)',
+                                'H<sub>2</sub>O (вода)',
+                                'N<sub>2</sub> (азот)'
+                            ],
+                            correct: 0,
+                            explanation: 'Ионная связь возникает между типичным металлом (Na) и типичным неметаллом (Cl) за счёт перехода электрона и образования ионов Na⁺ и Cl⁻.'
+                        },
+                        {
+                            type: 'numeric',
+                            text: 'Рассчитайте относительную молекулярную массу M<sub>r</sub> серной кислоты H<sub>2</sub>SO<sub>4</sub> (A<sub>r</sub>(H)=1, A<sub>r</sub>(S)=32, A<sub>r</sub>(O)=16).',
+                            unit: '',
+                            answer: 98,
+                            tolerance: 0.1,
+                            explanation: 'M<sub>r</sub>(H<sub>2</sub>SO<sub>4</sub>) = 2 · 1 + 32 + 4 · 16 = 2 + 32 + 64 = 98.'
+                        }
+                    ]
+                },
+                {
+                    id: '7-4',
+                    number: 'Модуль 4',
+                    title: 'Чистые вещества и смеси в повседневной жизни',
+                    desc: 'Гомогенные и гетерогенные смеси, методы разделения смесей (фильтрование, выпаривание, дистилляция, действие магнитом), воздух и вода.',
+                    questions: [
+                        {
+                            type: 'choice',
+                            text: 'Какая из приведённых смесей является ОДНОРОДНОЙ (гомогенной)?',
+                            options: [
+                                'Водный раствор поваренной соли',
+                                'Смесь речного песка и воды',
+                                'Смесь растительного масла и воды',
+                                'Смесь железных опилок и серы'
+                            ],
+                            correct: 0,
+                            explanation: 'В водном растворе соли частицы Na⁺ и Cl⁻ равномерно распределены между молекулами воды и не видны даже в микроскоп.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Какой метод необходимо применить для разделения смеси речного песка и воды?',
+                            options: [
+                                'Фильтрование',
+                                'Действие магнитом',
+                                'Перегонка (дистилляция)',
+                                'Хроматография'
+                            ],
+                            correct: 0,
+                            explanation: 'Песок нерастворим в воде (гетерогенная смесь), его крупные частицы задерживаются порами бумажного фильтра.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'В какой последовательности нужно действовать, чтобы очистить загрязнённую поваренную соль от примеси речного песка (Практическая работа №3)?',
+                            options: [
+                                'Растворение в воде → фильтрование → выпаривание фильтрата',
+                                'Фильтрование → действие магнитом → отстаивание',
+                                'Выпаривание → растворение в воде → делительная воронка',
+                                'Отстаивание → перегонка → действие магнитом'
+                            ],
+                            correct: 0,
+                            explanation: 'Соль растворяется в воде, песок остаётся на фильтре при фильтровании, а чистая соль выделяется при выпаривании воды.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Каково примерное объёмное содержание основных газов в чистом атмосферном воздухе?',
+                            options: [
+                                '78% азота (N<sub>2</sub>) и 21% кислорода (O<sub>2</sub>)',
+                                '78% кислорода (O<sub>2</sub>) и 21% азота (N<sub>2</sub>)',
+                                '50% кислорода и 50% углекислого газа',
+                                '80% углекислого газа и 20% кислорода'
+                            ],
+                            correct: 0,
+                            explanation: 'Воздух — природная смесь газов, в которой около 78% составляет азот, 21% — кислород и около 1% — аргон, CO₂ и другие газы.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'С помощью какого метода получают дистиллированную воду из водопроводной или морской воды?',
+                            options: [
+                                'Перегонка (дистилляция)',
+                                'Фильтрование через вату',
+                                'Отстаивание в течение часа',
+                                'Действие магнитом'
+                            ],
+                            correct: 0,
+                            explanation: 'Дистилляция основана на разнице температур кипения компонентов: вода испаряется и конденсируется в холодильнике, а соли остаются.'
+                        }
+                    ]
+                }
+            ],
+            8: [
+                {
+                    id: '8-1',
+                    number: 'Модуль 1',
+                    title: 'Вещество — химическая составляющая материи',
+                    desc: 'Составление формул по зарядам ионов, моль, молярная масса M, расчёты по формуле ν = m / M.',
+                    questions: [
+                        {
+                            type: 'numeric',
+                            text: 'Вычислите количество вещества &nu; (в моль), которое составляют 180 г воды H<sub>2</sub>O (M(H<sub>2</sub>O) = 18 г/моль).',
+                            unit: 'моль',
+                            answer: 10,
+                            tolerance: 0.05,
+                            explanation: 'Используем формулу &nu; = m / M: &nu;(H₂O) = 180 г / 18 г/моль = 10 моль.'
+                        },
+                        {
+                            type: 'numeric',
+                            text: 'Рассчитайте массу (в граммах) 0,5 моль гидроксида натрия NaOH (A<sub>r</sub>(Na)=23, A<sub>r</sub>(O)=16, A<sub>r</sub>(H)=1).',
+                            unit: 'г',
+                            answer: 20,
+                            tolerance: 0.1,
+                            explanation: 'M(NaOH) = 23 + 16 + 1 = 40 г/моль. Масса m = &nu; · M = 0,5 моль · 40 г/моль = 20 г.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Составьте химическую формулу фосфата кальция, используя заряды ионов Ca<sup>2+</sup> и PO<sub>4</sub><sup>3-</sup>:',
+                            options: [
+                                'Ca<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub>',
+                                'Ca<sub>2</sub>(PO<sub>4</sub>)<sub>3</sub>',
+                                'CaPO<sub>4</sub>',
+                                'Ca(PO<sub>4</sub>)<sub>2</sub>'
+                            ],
+                            correct: 0,
+                            explanation: 'Сумма положительных и отрицательных зарядов должна быть равна нулю: 3 · (+2) + 2 · (-3) = 0. Формула: Ca₃(PO₄)₂.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Укажите ряд, в котором формулы веществ расположены в порядке: оксид → кислота → основание → соль:',
+                            options: [
+                                'CuO → H<sub>2</sub>SO<sub>4</sub> → KOH → Na<sub>2</sub>CO<sub>3</sub>',
+                                'HCl → NaOH → Fe<sub>2</sub>O<sub>3</sub> → KCl',
+                                'Ca(OH)<sub>2</sub> → CO<sub>2</sub> → HNO<sub>3</sub> → CaSO<sub>4</sub>',
+                                'NaCl → H<sub>3</sub>PO<sub>4</sub> → MgO → Ba(OH)<sub>2</sub>'
+                            ],
+                            correct: 0,
+                            explanation: 'CuO — оксид меди(II); H₂SO₄ — серная кислота; KOH — гидроксид калия (основание); Na₂CO₃ — карбонат натрия (соль).'
+                        },
+                        {
+                            type: 'numeric',
+                            text: 'По уравнению реакции 2H<sub>2</sub>O<sub>2</sub> → 2H<sub>2</sub>O + O<sub>2</sub>↑ вычислите количество вещества &nu;(O<sub>2</sub>) (в моль), которое образуется при разложении 4 моль пероксида водорода.',
+                            unit: 'моль',
+                            answer: 2,
+                            tolerance: 0.05,
+                            explanation: 'По уравнению из 2 моль H₂O₂ образуется 1 моль O₂. Следовательно, &nu;(O₂) = 4 / 2 = 2 моль.'
+                        },
+                        {
+                            type: 'numeric',
+                            text: 'Какая масса воды (в граммах) образуется при полном сгорании 4 г водорода в кислороде: 2H<sub>2</sub> + O<sub>2</sub> = 2H<sub>2</sub>O?',
+                            unit: 'г',
+                            answer: 36,
+                            tolerance: 0.1,
+                            explanation: '&nu;(H₂) = 4 г / 2 г/моль = 2 моль. По уравнению &nu;(H₂O) = &nu;(H₂) = 2 моль. m(H₂O) = 2 моль · 18 г/моль = 36 г.'
+                        }
+                    ]
+                },
+                {
+                    id: '8-4',
+                    number: 'Модуль 4',
+                    title: 'Классы неорганических веществ',
+                    desc: 'Оксиды, кислоты, основания, соли: номенклатура, химические свойства, действие на индикаторы, генетические цепочки.',
+                    questions: [
+                        {
+                            type: 'choice',
+                            text: 'Какой оксид относится к КИСЛОТНЫМ оксидам и при взаимодействии с водой образует серную кислоту?',
+                            options: [
+                                'SO<sub>3</sub>',
+                                'CaO',
+                                'Fe<sub>2</sub>O<sub>3</sub>',
+                                'Na<sub>2</sub>O'
+                            ],
+                            correct: 0,
+                            explanation: 'SO₃ — кислотный оксид (оксид серы VI), реагирует с водой: SO₃ + H₂O = H₂SO₄.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Какую окраску приобретает фенолфталеин в растворе гидроксида натрия NaOH (щёлочи)?',
+                            options: [
+                                'Малиновую',
+                                'Бесцветную',
+                                'Жёлтую',
+                                'Сине-зелёную'
+                            ],
+                            correct: 0,
+                            explanation: 'Фенолфталеин является специфическим индикатором на щелочную среду (ионы OH⁻), окрашиваясь в малиновый цвет.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'С каким из перечисленных веществ будет реагировать разбавленная соляная кислота HCl?',
+                            options: [
+                                'Mg (магний)',
+                                'Cu (медь)',
+                                'CO<sub>2</sub> (оксид углерода IV)',
+                                'Ag (серебро)'
+                            ],
+                            correct: 0,
+                            explanation: 'Магний стоит в ряду активности металлов левее водорода, поэтому вытесняет его из кислоты: Mg + 2HCl = MgCl₂ + H₂↑. Медь и серебро правее H₂.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Укажите вещество X в генетической цепочке превращений: Ca → CaO → X → CaCO<sub>3</sub>',
+                            options: [
+                                'Ca(OH)<sub>2</sub>',
+                                'CaCl<sub>2</sub>',
+                                'H<sub>2</sub>CO<sub>3</sub>',
+                                'CaSO<sub>4</sub>'
+                            ],
+                            correct: 0,
+                            explanation: 'Генетический ряд металла: металл (Ca) → основный оксид (CaO) → основание/щёлочь (Ca(OH)₂) → соль (CaCO₃).'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Какая из приведённых солей НЕРАСТВОРИМА в воде и выпадает в виде белого осадка?',
+                            options: [
+                                'BaSO<sub>4</sub> (сульфат бария)',
+                                'Na<sub>2</sub>SO<sub>4</sub> (сульфат натрия)',
+                                'KNO<sub>3</sub> (нитрат калия)',
+                                'CuCl<sub>2</sub> (хлорид меди II)'
+                            ],
+                            correct: 0,
+                            explanation: 'По таблице растворимости BaSO₄ нерастворим ни в воде, ни в кислотах (белый осадок).'
+                        },
+                        {
+                            type: 'numeric',
+                            text: 'Вычислите массу осадка гидроксида меди(II) Cu(OH)<sub>2</sub> (M = 98 г/моль), полученного при взаимодействии 0,2 моль CuSO<sub>4</sub> с избытком NaOH.',
+                            unit: 'г',
+                            answer: 19.6,
+                            tolerance: 0.1,
+                            explanation: 'CuSO₄ + 2NaOH = Cu(OH)₂↓ + Na₂SO₄. По уравнению &nu;(Cu(OH)₂) = &nu;(CuSO₄) = 0,2 моль. m = 0,2 · 98 = 19,6 г.'
+                        }
+                    ]
+                },
+                {
+                    id: '8-5',
+                    number: 'Модуль 5',
+                    title: 'Вода и растворы',
+                    desc: 'Физические и химические свойства воды, растворимость, массовая доля растворённого вещества ω, приготовление растворов.',
+                    questions: [
+                        {
+                            type: 'numeric',
+                            text: 'В 180 г воды растворили 20 г поваренной соли. Вычислите массовую долю соли ω (в %) в полученном растворе.',
+                            unit: '%',
+                            answer: 10,
+                            tolerance: 0.1,
+                            explanation: 'Масса раствора m(р-ра) = 180 + 20 = 200 г. Массовая доля ω = (20 / 200) · 100% = 10%.'
+                        },
+                        {
+                            type: 'numeric',
+                            text: 'Сколько граммов соли необходимо взять для приготовления 300 г раствора с массовой долей соли 5%?',
+                            unit: 'г',
+                            answer: 15,
+                            tolerance: 0.1,
+                            explanation: 'm(соли) = (m(р-ра) · ω) / 100% = (300 · 5) / 100 = 15 г.'
+                        },
+                        {
+                            type: 'numeric',
+                            text: 'Сколько граммов воды нужно добавить к 25 г сахара, чтобы получить 10%-ный раствор?',
+                            unit: 'г',
+                            answer: 225,
+                            tolerance: 0.5,
+                            explanation: 'Общая масса раствора m(р-ра) = 25 г / 0,10 = 250 г. Масса воды m(H₂O) = 250 - 25 = 225 г.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Какие продукты образуются при взаимодействии активного металла натрия (Na) с водой?',
+                            options: [
+                                'Гидроксид натрия (NaOH) и водород (H<sub>2</sub>)',
+                                'Оксид натрия (Na<sub>2</sub>O) и кислород (O<sub>2</sub>)',
+                                'Только гидроксид натрия (NaOH)',
+                                'Гидрид натрия (NaH) и озон (O<sub>3</sub>)'
+                            ],
+                            correct: 0,
+                            explanation: 'Щелочные металлы бурно реагируют с водой с образованием щёлочи и газа водорода: 2Na + 2H₂O = 2NaOH + H₂↑.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Как изменяется растворимость большинства твёрдых веществ (например, солей и сахара) в воде при повышении температуры?',
+                            options: [
+                                'Увеличивается',
+                                'Уменьшается до нуля',
+                                'Никогда не изменяется',
+                                'Увеличивается только при замораживании'
+                            ],
+                            correct: 0,
+                            explanation: 'Для большинства твёрдых веществ растворимость в воде возрастает с повышением температуры (в отличие от газов, растворимость которых при нагревании падает).'
+                        }
+                    ]
+                },
+                {
+                    id: '8-6',
+                    number: 'Модуль 6',
+                    title: 'Химические продукты и качество жизни',
+                    desc: 'Бытовая химия, пиктограммы опасности на этикетках, безопасное обращение с химическими веществами в быту.',
+                    questions: [
+                        {
+                            type: 'choice',
+                            text: 'Что означает пиктограмма на этикетке бытового средства с изображением пробирок, из которых капли попадают на руку и металлическую пластинку, разъедая их?',
+                            options: [
+                                'Едкое / коррозионное вещество (вызывает химические ожоги)',
+                                'Взрывчатое вещество',
+                                'Радиоактивный материал',
+                                'Пищевой безопасный продукт'
+                            ],
+                            correct: 0,
+                            explanation: 'Данный знак предупреждает о едких веществах (кислотах, щелочах в средствах для прочистки труб), требующих работы в перчатках.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Какое доступное бытовое средство безопасно и эффективно используют для удаления известкового налёта (накипи CaCO<sub>3</sub>) в электрочайнике?',
+                            options: [
+                                'Раствор лимонной или уксусной кислоты',
+                                'Раствор поваренной соли',
+                                'Растительное масло',
+                                'Раствор питьевой соды'
+                            ],
+                            correct: 0,
+                            explanation: 'Накипь состоит преимущественно из нерастворимых карбонатов кальция и магния, которые растворяются при действии кислот с выделением CO₂.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Почему категорически запрещено смешивать хлорсодержащие отбеливатели («Белизна») с кислотными чистящими средствами?',
+                            options: [
+                                'Выделяется ядовитый удушливый газ хлор (Cl<sub>2</sub>)',
+                                'Смесь мгновенно замерзает',
+                                'Образуется чистый кислород',
+                                'Смесь становится полностью неэффективной без вреда'
+                            ],
+                            correct: 0,
+                            explanation: 'При взаимодействии гипохлорита натрия с кислотой выделяется токсичный газ хлор, вызывающий тяжёлое поражение дыхательных путей.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Что нужно сделать в первую очередь при случайном попадании раствора бытовой щёлочи или кислоты на кожу рук?',
+                            options: [
+                                'Обильно промыть поражённый участок проточной холодной водой в течение 10–15 минут',
+                                'Заклеить кожу пластырем без промывания',
+                                'Смазать кожу растительным маслом',
+                                'Нагреть руку горячим воздухом'
+                            ],
+                            correct: 0,
+                            explanation: 'Немедленное и длительное промывание большим количеством проточной воды удаляет реагент и предотвращает глубокий химический ожог.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Пиктограмма с изображением пламени над кругом на упаковке химического продукта означает:',
+                            options: [
+                                'Окислитель (усиливает горение других веществ)',
+                                'Безопасная питьевая вода',
+                                'Токсично только для растений',
+                                'Сжатый инертный газ'
+                            ],
+                            correct: 0,
+                            explanation: 'Пламя над кругом (буквой O) обозначает сильный окислитель, способный вызвать возгорание горючих материалов.'
+                        }
+                    ]
+                }
+            ],
+            9: [
+                {
+                    id: '9-1',
+                    number: 'Модуль 1',
+                    title: 'Периодический закон и ПСХЭ',
+                    desc: 'Степень окисления элементов, окислитель и восстановитель, периодическое изменение свойств в периодах I–III.',
+                    questions: [
+                        {
+                            type: 'choice',
+                            text: 'Определите степень окисления азота (N) в азотной кислоте HNO<sub>3</sub>:',
+                            options: [
+                                '+5',
+                                '+3',
+                                '-3',
+                                '+4'
+                            ],
+                            correct: 0,
+                            explanation: 'В HNO₃ степень окисления H равна +1, O равна -2. Алгебраическая сумма равна нулю: (+1) + x + 3·(-2) = 0 → x = +5.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Как изменяются радиус атома и металлические свойства элементов в 3-м периоде от натрия (Na) к хлору (Cl)?',
+                            options: [
+                                'Радиус атома уменьшается, металлические свойства ослабевают',
+                                'Радиус атома увеличивается, металлические свойства усиливаются',
+                                'Радиус не меняется, металлические свойства усиливаются',
+                                'Оба показателя остаются постоянными'
+                            ],
+                            correct: 0,
+                            explanation: 'В периоде слева направо заряд ядра растёт при неизменном числе электронных слоёв (3), электроны сильнее притягиваются к ядру, радиус уменьшается, а способность отдавать электроны падает.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'В процессе окислительно-восстановительной реакции атом железа превратился в ион: Fe<sup>0</sup> - 2e<sup>-</sup> → Fe<sup>2+</sup>. Какую роль выполняет Fe<sup>0</sup>?',
+                            options: [
+                                'Восстановитель (он окисляется)',
+                                'Окислитель (он восстанавливается)',
+                                'Ни окислитель, ни восстановитель',
+                                'Катализатор реакции'
+                            ],
+                            correct: 0,
+                            explanation: 'Частица, отдающая электроны, повышает свою степень окисления (окисляется) и является ВОССТАНОВИТЕЛЕМ.'
+                        },
+                        {
+                            type: 'numeric',
+                            text: 'Чему равна степень окисления серы в сернистом газе SO<sub>2</sub> (введите число со знаком или без, например 4)?',
+                            unit: '',
+                            answer: 4,
+                            tolerance: 0,
+                            explanation: 'У кислорода степень окисления -2. В молекуле SO₂: x + 2·(-2) = 0 → x = +4.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Какой из перечисленных оксидов проявляет наиболее ярко выраженные ОСНОВНЫЕ свойства?',
+                            options: [
+                                'Na<sub>2</sub>O',
+                                'MgO',
+                                'Al<sub>2</sub>O<sub>3</sub>',
+                                'SO<sub>3</sub>'
+                            ],
+                            correct: 0,
+                            explanation: 'Na₂O образован самым активным щелочным металлом натрием (начало 3-го периода) и является типичным основным оксидом.'
+                        }
+                    ]
+                },
+                {
+                    id: '9-2',
+                    number: 'Модуль 2',
+                    title: 'Растворы и электролитическая диссоциация',
+                    desc: 'Электролиты и неэлектролиты, уравнения диссоциации, условия протекания реакций ионного обмена до конца (осадок, газ, вода).',
+                    questions: [
+                        {
+                            type: 'choice',
+                            text: 'Какое из перечисленных веществ является ЭЛЕКТРОЛИТОМ (проводит электрический ток в водном растворе)?',
+                            options: [
+                                'KCl (хлорид калия)',
+                                'C<sub>12</sub>H<sub>22</sub>O<sub>11</sub> (сахароза)',
+                                'C<sub>2</sub>H<sub>5</sub>OH (этиловый спирт)',
+                                'O<sub>2</sub> (кислород)'
+                            ],
+                            correct: 0,
+                            explanation: 'KCl — растворимая соль с ионной связью, которая в воде диссоциирует на подвижные ионы K⁺ и Cl⁻.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Сколько моль ионов образуется при полной диссоциации 1 моль сульфата алюминия Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub>?',
+                            options: [
+                                '5 моль (2 моль Al<sup>3+</sup> и 3 моль SO<sub>4</sub><sup>2-</sup>)',
+                                '2 моль',
+                                '3 моль',
+                                '4 моль'
+                            ],
+                            correct: 0,
+                            explanation: 'Уравнение диссоциации: Al₂(SO₄)₃ → 2Al³⁺ + 3SO₄²⁻. Суммарно образуется 2 + 3 = 5 моль ионов.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'В каком случае реакция ионного обмена между растворами электролитов протекает ДО КОНЦА?',
+                            options: [
+                                'Na<sub>2</sub>CO<sub>3</sub> + 2HCl → 2NaCl + H<sub>2</sub>O + CO<sub>2</sub>↑',
+                                'NaCl + KNO<sub>3</sub> → ...',
+                                'K<sub>2</sub>SO<sub>4</sub> + NaOH → ...',
+                                'NaNO<sub>3</sub> + KCl → ...'
+                            ],
+                            correct: 0,
+                            explanation: 'Реакции ионного обмена идут до конца при образовании осадка, газа или малодиссоциирующего вещества (воды). Здесь выделяется газ CO₂ и вода.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Какому молекулярному уравнению соответствует сокращённое ионное уравнение: H<sup>+</sup> + OH<sup>-</sup> = H<sub>2</sub>O?',
+                            options: [
+                                'KOH + HNO<sub>3</sub> = KNO<sub>3</sub> + H<sub>2</sub>O',
+                                'Cu(OH)<sub>2</sub> + 2HCl = CuCl<sub>2</sub> + 2H<sub>2</sub>O',
+                                '2NaOH + CO<sub>2</sub> = Na<sub>2</sub>CO<sub>3</sub> + H<sub>2</sub>O',
+                                'Ba(OH)<sub>2</sub> + H<sub>2</sub>SO<sub>4</sub> = BaSO<sub>4</sub>↓ + 2H<sub>2</sub>O'
+                            ],
+                            correct: 0,
+                            explanation: 'Сокращённое уравнение H⁺ + OH⁻ = H₂O описывает нейтрализацию растворимой сильной кислоты (HNO₃) растворимым основанием — щёлочью (KOH) без образования осадка.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Какая пара ионов НЕ МОЖЕТ одновременно находиться в растворе в больших концентрациях (образует осадок)?',
+                            options: [
+                                'Ba<sup>2+</sup> и SO<sub>4</sub><sup>2-</sup>',
+                                'Na<sup>+</sup> и Cl<sup>-</sup>',
+                                'K<sup>+</sup> и NO<sub>3</sub><sup>-</sup>',
+                                'H<sup>+</sup> и Cl<sup>-</sup>'
+                            ],
+                            correct: 0,
+                            explanation: 'Ионы Ba²⁺ и SO₄²⁻ связываются в нерастворимый белый осадок сульфата бария BaSO₄↓.'
+                        }
+                    ]
+                },
+                {
+                    id: '9-3',
+                    number: 'Модуль 3',
+                    title: 'Металлы и их соединения',
+                    desc: 'Ряд активности металлов Бекетова, щелочные металлы (Na, K), кальций и жёсткость воды, алюминий (амфотерность), железо и коррозия.',
+                    questions: [
+                        {
+                            type: 'choice',
+                            text: 'Какой металл вытеснит медь из водного раствора сульфата меди(II) CuSO<sub>4</sub>?',
+                            options: [
+                                'Железо (Fe)',
+                                'Серебро (Ag)',
+                                'Золото (Au)',
+                                'Ртуть (Hg)'
+                            ],
+                            correct: 0,
+                            explanation: 'В ряду активности металлов железо (Fe) расположено левее меди (Cu), поэтому оно вытесняет медь: Fe + CuSO₄ = FeSO₄ + Cu.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Присутствие каких катионов в природной воде обусловливает её ЖЁСТКОСТЬ?',
+                            options: [
+                                'Ca<sup>2+</sup> и Mg<sup>2+</sup>',
+                                'Na<sup>+</sup> и K<sup>+</sup>',
+                                'Ag<sup>+</sup> и Au<sup>3+</sup>',
+                                'H<sup>+</sup> и NH<sub>4</sub><sup>+</sup>'
+                            ],
+                            correct: 0,
+                            explanation: 'Жёсткость природной воды вызвана растворёнными солями кальция (Ca²⁺) и магния (Mg²⁺).'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Какое свойство проявляет гидроксид алюминия Al(OH)<sub>3</sub>, реагируя как с кислотами, так и со щелочами?',
+                            options: [
+                                'Амфотерность',
+                                'Аллотропия',
+                                'Адсорбция',
+                                'Радиоактивность'
+                            ],
+                            correct: 0,
+                            explanation: 'Способность вещества проявлять как основные, так и кислотные свойства в зависимости от реагента называется амфотерностью.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Чем по химическому составу являются чугун и сталь?',
+                            options: [
+                                'Сплавами железа с углеродом (в чугуне углерода > 2%, в стали < 2%)',
+                                'Чистыми оксидами железа',
+                                'Сплавами меди и олова',
+                                'Соединениями алюминия с кремнием'
+                            ],
+                            correct: 0,
+                            explanation: 'Чугун и сталь — важнейшие промышленные сплавы на основе железа (Fe) с различным содержанием углерода (C).'
+                        },
+                        {
+                            type: 'numeric',
+                            text: 'Какая масса железа (в граммах) образуется при полном восстановлении 160 г оксида железа(III) Fe<sub>2</sub>O<sub>3</sub> (M = 160 г/моль) угарным газом: Fe<sub>2</sub>O<sub>3</sub> + 3CO = 2Fe + 3CO<sub>2</sub>?',
+                            unit: 'г',
+                            answer: 112,
+                            tolerance: 0.2,
+                            explanation: '&nu;(Fe₂O₃) = 160 / 160 = 1 моль. По уравнению &nu;(Fe) = 2 · &nu;(Fe₂O₃) = 2 моль. Масса железа m(Fe) = 2 моль · 56 г/моль = 112 г.'
+                        }
+                    ]
+                },
+                {
+                    id: '9-4',
+                    number: 'Модуль 4',
+                    title: 'Неметаллы и их соединения',
+                    desc: 'Молярный объём газов Vm = 22,4 л/моль, галогены, S, N, P, C, Si, качественные реакции на ионы, основы органической химии (метан, этанол, уксусная кислота, полимеры).',
+                    questions: [
+                        {
+                            type: 'numeric',
+                            text: 'Вычислите объём (в литрах при н.у.), который занимают &nu; = 0,25 моль углекислого газа CO<sub>2</sub> (V<sub>m</sub> = 22,4 л/моль).',
+                            unit: 'л',
+                            answer: 5.6,
+                            tolerance: 0.05,
+                            explanation: 'V = &nu; · V<sub>m</sub> = 0,25 моль · 22,4 л/моль = 5,6 л.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'С помощью какого реактива можно провести качественную реакцию на сульфат-ион SO<sub>4</sub><sup>2-</sup> (ЛО 10)?',
+                            options: [
+                                'Растворимая соль бария (например, BaCl<sub>2</sub>) — выпадает белый осадок BaSO<sub>4</sub>↓',
+                                'Нитрат серебра AgNO<sub>3</sub> — выпадает жёлтый осадок',
+                                'Фенолфталеин — появляется малиновая окраска',
+                                'Медная проволока при нагревании'
+                            ],
+                            correct: 0,
+                            explanation: 'Качественным реактивом на сульфат-ион SO₄²⁻ являются катионы Ba²⁺, образующие нерастворимый в кислотах белый осадок BaSO₄↓.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Какой признак наблюдается при распознавании иона аммония NH<sub>4</sub><sup>+</sup> при нагревании соли аммония со щёлочью (ЛО 11)?',
+                            options: [
+                                'Выделение газа аммиака NH<sub>3</sub> с резким запахом, от которого синеет влажная лакмусовая бумажка',
+                                'Выпадение чёрного осадка',
+                                'Обесцвечивание раствора',
+                                'Выделение бурого газа'
+                            ],
+                            correct: 0,
+                            explanation: 'NH₄⁺ + OH⁻ →(t°) NH₃↑ + H₂O. Аммиак имеет резкий запах и даёт щелочную реакцию на влажной индикаторной бумаге.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Укажите молекулярную формулу основного компонента природного газа — метана:',
+                            options: [
+                                'CH<sub>4</sub>',
+                                'C<sub>2</sub>H<sub>6</sub>',
+                                'C<sub>3</sub>H<sub>8</sub>',
+                                'C<sub>2</sub>H<sub>5</sub>OH'
+                            ],
+                            correct: 0,
+                            explanation: 'Метан (CH₄) — простейший предельный углеводород, составляющий основу природного газа.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Какие функциональные группы содержат этиловый спирт (этанол) и уксусная кислота соответственно?',
+                            options: [
+                                'Этанол — гидроксильную (-OH), уксусная кислота — карбоксильную (-COOH)',
+                                'Оба вещества содержат только аминогруппу (-NH<sub>2</sub>)',
+                                'Этанол — карбоксильную (-COOH), уксусная кислота — гидроксильную (-OH)',
+                                'Оба вещества не содержат атомов кислорода'
+                            ],
+                            correct: 0,
+                            explanation: 'Формула этанола C₂H₅OH (группа -OH), формула уксусной кислоты CH₃COOH (карбоксильная группа -COOH).'
+                        },
+                        {
+                            type: 'numeric',
+                            text: 'Какой объём углекислого газа CO<sub>2</sub> (в литрах при н.у.) выделится при полном сгорании 10 л метана: CH<sub>4</sub> + 2O<sub>2</sub> = CO<sub>2</sub> + 2H<sub>2</sub>O?',
+                            unit: 'л',
+                            answer: 10,
+                            tolerance: 0.1,
+                            explanation: 'По закону объёмных отношений газов коэффициенты перед CH₄ и CO₂ равны (1 : 1), поэтому V(CO₂) = V(CH₄) = 10 л.'
+                        }
+                    ]
+                },
+                {
+                    id: '9-5',
+                    number: 'Модуль 5',
+                    title: 'Химия и современный прогресс',
+                    desc: 'Зелёная химия, наноматериалы и полупроводники, экологическая безопасность и защита окружающей среды.',
+                    questions: [
+                        {
+                            type: 'choice',
+                            text: 'Что является главной целью концепции «Зелёной химии» (Green Chemistry)?',
+                            options: [
+                                'Создание химических процессов и продуктов, исключающих или снижающих образование токсичных отходов',
+                                'Окрашивание всех лабораторных реактивов в зелёный цвет',
+                                'Полный запрет любых химических производств в мире',
+                                'Использование только органических красителей'
+                            ],
+                            correct: 0,
+                            explanation: 'Зелёная химия направлена на разработку безотходных, энергоэффективных и экологически безопасных технологий синтеза веществ.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Какой химический элемент является основой современной микроэлектроники, полупроводниковых чипов и солнечных батарей?',
+                            options: [
+                                'Кремний (Si)',
+                                'Свинец (Pb)',
+                                'Сера (S)',
+                                'Калий (K)'
+                            ],
+                            correct: 0,
+                            explanation: 'Сверхчистый кремний (Si) обладает уникальными полупроводниковыми свойствами и используется для производства микросхем и фотоэлементов.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Какой размер частиц характерен для наноматериалов (фуллеренов, углеродных нанотрубок, наночастиц)?',
+                            options: [
+                                'От 1 до 100 нанометров (1 нм = 10<sup>-9</sup> м)',
+                                'От 1 до 10 миллиметров',
+                                'От 1 до 5 сантиметров',
+                                'Более 1 метра'
+                            ],
+                            correct: 0,
+                            explanation: 'Нанотехнологии оперируют объектами размером от 1 до 100 нм (миллиардных долей метра), где проявляются новые физико-химические свойства.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Какой способ утилизации бытовых полимерных отходов (полиэтилена, ПЭТ-бутылок) является наиболее экологичным?',
+                            options: [
+                                'Раздельный сбор и вторичная переработка (рециклинг)',
+                                'Сжигание на открытом воздухе во дворе',
+                                'Сброс в реки и водоёмы',
+                                'Закапывание в плодородную почву'
+                            ],
+                            correct: 0,
+                            explanation: 'При сжигании пластика выделяются токсичные диоксины, а в природе он разлагается сотни лет. Вторичная переработка сохраняет ресурсы и природу.'
+                        },
+                        {
+                            type: 'choice',
+                            text: 'Повышенное содержание какого газа в атмосфере приводит к усилению парникового эффекта и глобальному изменению климата?',
+                            options: [
+                                'Углекислого газа (CO<sub>2</sub>) и метана (CH<sub>4</sub>)',
+                                'Азота (N<sub>2</sub>)',
+                                'Аргона (Ar)',
+                                'Гелия (He)'
+                            ],
+                            correct: 0,
+                            explanation: 'Углекислый газ (CO₂) и метан (CH₄) являются основными парниковыми газами, удерживающими тепловое излучение Земли.'
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // СОСТОЯНИЕ ПРИЛОЖЕНИЯ
+        let state = {
+            grade: 7,
+            moduleIndex: 0,
+            questionIndex: 0,
+            score: 0,
+            answered: false,
+            completedModules: {} // хранит оценки по 10-балльной шкале РМ: { '7-1': 9, ... }
+        };
+
+        // Инициализация при загрузке
+        window.onload = function() {
+            selectGrade(7);
+        };
+
+        // Выбор класса (7, 8 или 9)
+        function selectGrade(grade) {
+            state.grade = grade;
+            state.moduleIndex = 0;
+            state.questionIndex = 0;
+            state.score = 0;
+            state.answered = false;
+
+            // Обновление стиля кнопок классов
+            [7, 8, 9].forEach(g => {
+                const btn = document.getElementById(`grade-btn-${g}`);
+                if (g === grade) {
+                    btn.className = 'grade-tab px-3.5 py-1.5 rounded-lg text-sm font-bold bg-white text-teal-800 shadow-xs transition-all';
+                } else {
+                    btn.className = 'grade-tab px-3.5 py-1.5 rounded-lg text-sm font-semibold text-teal-100 hover:bg-white/10 transition-all';
+                }
+            });
+
+            renderModuleList();
+            loadModule(0);
+        }
+
+        // Отрисовка списка модулей выбранного класса
+        function renderModuleList() {
+            const modules = CURRICULUM_DATA[state.grade];
+            const listEl = document.getElementById('module-list');
+            document.getElementById('modules-header-title').textContent = `Модули ${state.grade} класса`;
+
+            let completedCount = 0;
+            modules.forEach(m => {
+                if (state.completedModules[m.id] !== undefined) completedCount++;
+            });
+            document.getElementById('grade-stats-badge').textContent = `${completedCount} / ${modules.length} пройдено`;
+
+            listEl.innerHTML = modules.map((mod, idx) => {
+                const isActive = idx === state.moduleIndex;
+                const mark = state.completedModules[mod.id];
+                const markBadge = mark !== undefined
+                    ? `<span class="shrink-0 text-xs font-bold px-2 py-0.5 rounded-md ${mark >= 5 ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">Оценка: ${mark}</span>`
+                    : `<span class="shrink-0 text-xs font-medium text-slate-400">${mod.questions.length} зад.</span>`;
+
+                return `
+                    <button onclick="loadModule(${idx})" class="w-full text-left p-3 rounded-xl border transition-all flex flex-col gap-1 ${
+                        isActive 
+                        ? 'bg-teal-50/90 border-teal-500 shadow-xs ring-1 ring-teal-500/30' 
+                        : 'bg-slate-50/70 border-slate-200/80 hover:bg-white hover:border-slate-300'
+                    }">
+                        <div class="flex items-center justify-between gap-2 w-full">
+                            <span class="text-xs font-bold ${isActive ? 'text-teal-700' : 'text-sky-700'}">${mod.number}</span>
+                            ${markBadge}
+                        </div>
+                        <div class="text-sm font-semibold text-slate-800 leading-snug">${mod.title}</div>
+                    </button>
+                `;
+            }).join('');
+        }
+
+        // Загрузка конкретного модуля
+        function loadModule(index) {
+            state.moduleIndex = index;
+            state.questionIndex = 0;
+            state.score = 0;
+            state.answered = false;
+
+            const mod = CURRICULUM_DATA[state.grade][index];
+            document.getElementById('current-module-tag').textContent = `${state.grade} класс • ${mod.number}`;
+            document.getElementById('current-module-title').textContent = mod.title;
+            document.getElementById('current-module-desc').textContent = mod.desc;
+
+            document.getElementById('result-card').classList.add('hidden');
+            document.getElementById('quiz-card').classList.remove('hidden');
+
+            renderModuleList();
+            renderQuestion();
+        }
+
+        // Отрисовка текущего вопроса
+        function renderQuestion() {
+            const mod = CURRICULUM_DATA[state.grade][state.moduleIndex];
+            const q = mod.questions[state.questionIndex];
+            const total = mod.questions.length;
+
+            // Обновление прогресса
+            document.getElementById('question-counter-text').textContent = `Задание ${state.questionIndex + 1} из ${total}`;
+            document.getElementById('score-counter-text').textContent = `Верно: ${state.score} из ${total}`;
+            const pct = Math.round(((state.questionIndex) / total) * 100);
+            document.getElementById('progress-bar').style.width = `${Math.max(10, pct)}%`;
+
+            const quizCard = document.getElementById('quiz-card');
+            quizCard.classList.remove('animate-fade-in');
+            void quizCard.offsetWidth; // перезапуск анимации
+            quizCard.classList.add('animate-fade-in');
+
+            let interactionHTML = '';
+
+            if (q.type === 'choice') {
+                const letters = ['А', 'Б', 'В', 'Г'];
+                interactionHTML = `
+                    <div class="grid grid-cols-1 gap-2.5 mt-4" id="options-container">
+                        ${q.options.map((opt, idx) => `
+                            <button onclick="checkChoiceAnswer(${idx})" id="opt-btn-${idx}" class="option-btn w-full text-left p-3.5 sm:p-4 rounded-xl border-2 border-slate-200 hover:border-teal-400 hover:bg-teal-50/40 bg-white flex items-center gap-3.5 group">
+                                <span id="opt-badge-${idx}" class="w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-teal-100 text-slate-600 group-hover:text-teal-800 font-bold text-sm flex items-center justify-center shrink-0 transition-colors">${letters[idx]}</span>
+                                <span class="text-sm sm:text-base font-medium text-slate-800 leading-snug">${opt}</span>
+                            </button>
+                        `).join('')}
+                    </div>
+                `;
+            } else if (q.type === 'numeric') {
+                interactionHTML = `
+                    <div class="mt-5 p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <label for="numeric-input" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Введите числовой ответ:</label>
+                        <div class="flex flex-wrap sm:flex-nowrap items-center gap-3">
+                            <input type="text" inputmode="decimal" id="numeric-input" placeholder="Например: 12.5" 
+                                onkeydown="if(event.key==='Enter') checkNumericAnswer()"
+                                class="w-full sm:w-56 px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-teal-600 focus:outline-none text-base font-bold text-slate-800 bg-white" />
+                            ${q.unit ? `<span class="text-sm font-bold text-slate-600">${q.unit}</span>` : ''}
+                            <button onclick="checkNumericAnswer()" id="numeric-submit-btn" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-teal-600 hover:bg-teal-700 active:scale-95 text-white font-semibold text-sm shadow-sm transition-all">
+                                Проверить ответ
+                            </button>
+                        </div>
+                        <p id="numeric-error-msg" class="hidden text-xs font-semibold text-rose-600 mt-2">Пожалуйста, введите корректное число.</p>
+                    </div>
+                `;
+            }
+
+            quizCard.innerHTML = `
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="px-2.5 py-0.5 rounded-md text-xs font-bold bg-slate-100 text-slate-600">
+                        ${q.type === 'numeric' ? 'Расчётная задача' : 'Тестовое задание'}
+                    </span>
+                </div>
+                <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-relaxed">${q.text}</h3>
+                
+                ${interactionHTML}
+
+                <!-- Блок обратной связи и объяснения -->
+                <div id="feedback-box" class="hidden mt-5 p-4 rounded-xl border animate-fade-in">
+                    <div class="flex items-start gap-3">
+                        <div id="feedback-icon" class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5 text-white font-bold text-sm"></div>
+                        <div class="flex-1">
+                            <h4 id="feedback-title" class="font-bold text-sm sm:text-base"></h4>
+                            <p id="feedback-explanation" class="text-xs sm:text-sm text-slate-700 mt-1 leading-relaxed"></p>
+                        </div>
+                    </div>
+                    <div class="mt-4 flex justify-end">
+                        <button onclick="nextQuestion()" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 active:scale-95 text-white text-sm font-semibold transition-all flex items-center gap-2">
+                            <span>${state.questionIndex + 1 < total ? 'Следующее задание' : 'Завершить модуль'}</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            if (q.type === 'numeric') {
+                setTimeout(() => {
+                    const inp = document.getElementById('numeric-input');
+                    if (inp) inp.focus();
+                }, 50);
+            }
+        }
+
+        // Проверка ответа с выбором варианта
+        function checkChoiceAnswer(selectedIndex) {
+            if (state.answered) return;
+            state.answered = true;
+
+            const mod = CURRICULUM_DATA[state.grade][state.moduleIndex];
+            const q = mod.questions[state.questionIndex];
+            const isCorrect = selectedIndex === q.correct;
+
+            if (isCorrect) state.score++;
+
+            // Блокируем кнопки и подсвечиваем правильный/неправильный вариант
+            q.options.forEach((_, idx) => {
+                const btn = document.getElementById(`opt-btn-${idx}`);
+                const badge = document.getElementById(`opt-badge-${idx}`);
+                btn.disabled = true;
+
+                if (idx === q.correct) {
+                    btn.className = 'option-btn w-full text-left p-3.5 sm:p-4 rounded-xl border-2 border-emerald-500 bg-emerald-50/80 flex items-center gap-3.5';
+                    badge.className = 'w-8 h-8 rounded-lg bg-emerald-600 text-white font-bold text-sm flex items-center justify-center shrink-0';
+                } else if (idx === selectedIndex && !isCorrect) {
+                    btn.className = 'option-btn w-full text-left p-3.5 sm:p-4 rounded-xl border-2 border-rose-500 bg-rose-50/80 flex items-center gap-3.5';
+                    badge.className = 'w-8 h-8 rounded-lg bg-rose-600 text-white font-bold text-sm flex items-center justify-center shrink-0';
+                } else {
+                    btn.className = 'option-btn w-full text-left p-3.5 sm:p-4 rounded-xl border-2 border-slate-100 bg-slate-50/50 opacity-60 flex items-center gap-3.5';
+                }
+            });
+
+            showFeedback(isCorrect, q.explanation);
+        }
+
+        // Проверка числового ответа
+        function checkNumericAnswer() {
+            if (state.answered) return;
+
+            const inputEl = document.getElementById('numeric-input');
+            const errEl = document.getElementById('numeric-error-msg');
+            const rawVal = inputEl.value.trim().replace(',', '.');
+
+            if (rawVal === '' || isNaN(Number(rawVal))) {
+                errEl.classList.remove('hidden');
+                return;
+            }
+            errEl.classList.add('hidden');
+            state.answered = true;
+
+            const userNum = parseFloat(rawVal);
+            const mod = CURRICULUM_DATA[state.grade][state.moduleIndex];
+            const q = mod.questions[state.questionIndex];
+            const isCorrect = Math.abs(userNum - q.answer) <= (q.tolerance || 0.01);
+
+            if (isCorrect) state.score++;
+
+            inputEl.disabled = true;
+            document.getElementById('numeric-submit-btn').disabled = true;
+            document.getElementById('numeric-submit-btn').classList.add('opacity-50');
+
+            inputEl.className = isCorrect
+                ? 'w-full sm:w-56 px-4 py-3 rounded-xl border-2 border-emerald-500 bg-emerald-50 text-base font-bold text-emerald-900'
+                : 'w-full sm:w-56 px-4 py-3 rounded-xl border-2 border-rose-500 bg-rose-50 text-base font-bold text-rose-900';
+
+            const extraNote = isCorrect ? '' : `<b>Правильный ответ: ${String(q.answer).replace('.', ',')} ${q.unit || ''}</b>.<br>`;
+            showFeedback(isCorrect, extraNote + q.explanation);
+        }
+
+        // Отображение блока пояснения
+        function showFeedback(isCorrect, explanationHTML) {
+            const mod = CURRICULUM_DATA[state.grade][state.moduleIndex];
+            document.getElementById('score-counter-text').textContent = `Верно: ${state.score} из ${mod.questions.length}`;
+
+            const box = document.getElementById('feedback-box');
+            const icon = document.getElementById('feedback-icon');
+            const title = document.getElementById('feedback-title');
+            const exp = document.getElementById('feedback-explanation');
+
+            box.classList.remove('hidden');
+            if (isCorrect) {
+                box.className = 'mt-5 p-4 rounded-xl border border-emerald-200 bg-emerald-50/70 animate-fade-in';
+                icon.className = 'w-7 h-7 rounded-full bg-emerald-600 flex items-center justify-center shrink-0 mt-0.5 text-white font-bold text-sm';
+                icon.textContent = '✓';
+                title.className = 'font-bold text-sm sm:text-base text-emerald-900';
+                title.textContent = 'Правильно! Отличный результат.';
+            } else {
+                box.className = 'mt-5 p-4 rounded-xl border border-rose-200 bg-rose-50/70 animate-fade-in';
+                icon.className = 'w-7 h-7 rounded-full bg-rose-600 flex items-center justify-center shrink-0 mt-0.5 text-white font-bold text-sm';
+                icon.textContent = '!';
+                title.className = 'font-bold text-sm sm:text-base text-rose-900';
+                title.textContent = 'Допущена ошибка. Разберём решение:';
+            }
+            exp.innerHTML = explanationHTML;
+        }
+
+        // Переход к следующему вопросу или итогам
+        function nextQuestion() {
+            const mod = CURRICULUM_DATA[state.grade][state.moduleIndex];
+            if (state.questionIndex + 1 < mod.questions.length) {
+                state.questionIndex++;
+                state.answered = false;
+                renderQuestion();
+            } else {
+                showModuleResults();
+            }
+        }
+
+        // Перевод процентов в 10-балльную систему оценивания Республики Молдова
+        function calculateMoldovaMark(percent) {
+            if (percent >= 95) return 10;
+            if (percent >= 85) return 9;
+            if (percent >= 75) return 8;
+            if (percent >= 65) return 7;
+            if (percent >= 50) return 6;
+            if (percent >= 40) return 5;
+            if (percent >= 30) return 4;
+            if (percent >= 20) return 3;
+            if (percent >= 10) return 2;
+            return 1;
+        }
+
+        // Показ итогов по модулю
+        function showModuleResults() {
+            const modules = CURRICULUM_DATA[state.grade];
+            const mod = modules[state.moduleIndex];
+            const total = mod.questions.length;
+            const percent = Math.round((state.score / total) * 100);
+            const mark = calculateMoldovaMark(percent);
+
+            state.completedModules[mod.id] = mark;
+            renderModuleList();
+
+            document.getElementById('progress-bar').style.width = '100%';
+            document.getElementById('quiz-card').classList.add('hidden');
+            const resultCard = document.getElementById('result-card');
+            resultCard.classList.remove('hidden');
+
+            let comment = '';
+            let badgeColor = 'bg-emerald-100 text-emerald-800 border-emerald-300';
+            if (mark >= 9) {
+                comment = 'Превосходно! Вы отлично усвоили материал модуля согласно требованиям куррикулума.';
+            } else if (mark >= 7) {
+                comment = 'Хороший результат! Обратите внимание на пояснения к задачам для закрепления темы.';
+                badgeColor = 'bg-sky-100 text-sky-800 border-sky-300';
+            } else if (mark >= 5) {
+                comment = 'Базовый уровень достигнут. Рекомендуем повторить теорию в «Справочнике» и пройти тест ещё раз.';
+                badgeColor = 'bg-amber-100 text-amber-800 border-amber-300';
+            } else {
+                comment = 'Нужна дополнительная тренировка. Откройте «Справочник ученика» и попробуйте снова!';
+                badgeColor = 'bg-rose-100 text-rose-800 border-rose-300';
+            }
+
+            const hasNext = state.moduleIndex + 1 < modules.length;
+
+            resultCard.innerHTML = `
+                <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl border-2 ${badgeColor} text-3xl font-extrabold mb-3 shadow-xs">
+                    ${mark}
+                </div>
+                <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Оценка по 10-балльной шкале РМ</div>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-800 mt-1">Модуль завершён: ${state.score} из ${total} (${percent}%)</h3>
+                <p class="text-sm text-slate-600 max-w-md mx-auto mt-2 leading-relaxed">${comment}</p>
+
+                <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+                    <button onclick="loadModule(${state.moduleIndex})" class="px-5 py-3 rounded-xl border-2 border-slate-200 hover:border-slate-300 bg-white text-slate-700 font-semibold text-sm transition-all active:scale-95">
+                        Пройти заново
+                    </button>
+                    ${hasNext ? `
+                        <button onclick="loadModule(${state.moduleIndex + 1})" class="px-6 py-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm shadow-sm transition-all active:scale-95 flex items-center gap-2">
+                            <span>Следующий модуль</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            </svg>
+                        </button>
+                    ` : ''}
+                </div>
+            `;
+        }
+
+        // Управление модальным окном справочника
+        function toggleReferenceModal(show) {
+            const modal = document.getElementById('reference-modal');
+            if (show) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        // Переключение вкладок внутри справочника
+        function switchRefTab(tabName) {
+            ['formulas', 'indicators', 'solubility'].forEach(t => {
+                const btn = document.getElementById(`ref-tab-${t}`);
+                const content = document.getElementById(`ref-content-${t}`);
+                if (t === tabName) {
+                    btn.className = 'ref-tab-btn px-4 py-3 text-sm font-semibold border-b-2 border-teal-600 text-teal-700 whitespace-nowrap';
+                    content.classList.remove('hidden');
+                } else {
+                    btn.className = 'ref-tab-btn px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-700 whitespace-nowrap';
+                    content.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
